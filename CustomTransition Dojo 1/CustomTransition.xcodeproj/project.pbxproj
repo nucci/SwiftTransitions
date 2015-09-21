@@ -13,6 +13,8 @@
 		2B528D901BA8F076002F2C59 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B528D8E1BA8F076002F2C59 /* LaunchScreen.xib */; };
 		2B528DAE1BA8F795002F2C59 /* TransitionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B528DAD1BA8F795002F2C59 /* TransitionsTableViewController.swift */; };
 		2B528DB01BA8FAEF002F2C59 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B528DAF1BA8FAEF002F2C59 /* DetailViewController.swift */; };
+		2B55C78A1BADD21A00C3006F /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55C7891BADD21A00C3006F /* ImageViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		2B55C78C1BADD5BA00C3006F /* ImagemAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B55C78B1BADD5BA00C3006F /* ImagemAnimationController.swift */; settings = {ASSET_TAGS = (); }; };
 		2BFDAB651BAAFDCA009D972F /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB641BAAFDCA009D972F /* PopupViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		2BFDAB671BAAFDE6009D972F /* CubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB661BAAFDE6009D972F /* CubeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		2BFDAB6B1BAB03CB009D972F /* balloons.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BFDAB6A1BAB03CB009D972F /* balloons.png */; settings = {ASSET_TAGS = (); }; };
@@ -31,6 +33,8 @@
 		2B528D8F1BA8F076002F2C59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2B528DAD1BA8F795002F2C59 /* TransitionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransitionsTableViewController.swift; path = "View Controllers/TransitionsTableViewController.swift"; sourceTree = "<group>"; };
 		2B528DAF1BA8FAEF002F2C59 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = "View Controllers/DetailViewController.swift"; sourceTree = "<group>"; };
+		2B55C7891BADD21A00C3006F /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		2B55C78B1BADD5BA00C3006F /* ImagemAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagemAnimationController.swift; sourceTree = "<group>"; };
 		2BFDAB641BAAFDCA009D972F /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupViewController.swift; path = "View Controllers/PopupViewController.swift"; sourceTree = "<group>"; };
 		2BFDAB661BAAFDE6009D972F /* CubeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CubeViewController.swift; path = "View Controllers/CubeViewController.swift"; sourceTree = "<group>"; };
 		2BFDAB6A1BAB03CB009D972F /* balloons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balloons.png; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 				2B528DAF1BA8FAEF002F2C59 /* DetailViewController.swift */,
 				2BFDAB641BAAFDCA009D972F /* PopupViewController.swift */,
 				2BFDAB661BAAFDE6009D972F /* CubeViewController.swift */,
+				2B55C7891BADD21A00C3006F /* ImageViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 				2BFDAB751BAB9C8A009D972F /* ZoomAnimationController.swift */,
 				2BFDAB781BAB9FF2009D972F /* PopupAnimationController.swift */,
 				2BFDAB7A1BABA476009D972F /* CubeAnimationController.swift */,
+				2B55C78B1BADD5BA00C3006F /* ImagemAnimationController.swift */,
 			);
 			name = Transitions;
 			sourceTree = "<group>";
@@ -195,7 +201,9 @@
 			files = (
 				2BFDAB651BAAFDCA009D972F /* PopupViewController.swift in Sources */,
 				2BFDAB791BAB9FF2009D972F /* PopupAnimationController.swift in Sources */,
+				2B55C78A1BADD21A00C3006F /* ImageViewController.swift in Sources */,
 				2B528DB01BA8FAEF002F2C59 /* DetailViewController.swift in Sources */,
+				2B55C78C1BADD5BA00C3006F /* ImagemAnimationController.swift in Sources */,
 				2B528DAE1BA8F795002F2C59 /* TransitionsTableViewController.swift in Sources */,
 				2BFDAB761BAB9C8A009D972F /* ZoomAnimationController.swift in Sources */,
 				2B528D861BA8F076002F2C59 /* AppDelegate.swift in Sources */,

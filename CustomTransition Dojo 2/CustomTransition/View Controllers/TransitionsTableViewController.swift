@@ -38,6 +38,7 @@ class TransitionsTableViewController: UITableViewController, UIViewControllerTra
     
     lazy var zoomAnimation = ZoomAnimationController()
     lazy var cubeAnimation = CubeAnimationController()
+    lazy var imageAnimation = ImageAnimationController()
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
     {
@@ -66,18 +67,15 @@ class TransitionsTableViewController: UITableViewController, UIViewControllerTra
         switch (operation) {
             
         case .Pop:
-            self.cubeAnimation.reverseAnimation = true
+            self.imageAnimation.reverseAnimation = true
             break
             
         default:
-            self.cubeAnimation.reverseAnimation = false
+            self.imageAnimation.reverseAnimation = false
             break
         }
         
-        //TODO:
-        self.cubeAnimation.interactivePopGestureRecognizer = navigationController.interactivePopGestureRecognizer
-        
-        return self.cubeAnimation
+        return self.imageAnimation
     }
     
     func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
@@ -86,5 +84,10 @@ class TransitionsTableViewController: UITableViewController, UIViewControllerTra
             return self.cubeAnimation
         }
         return nil
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        self.navigationController?.delegate = self
+
     }
 }

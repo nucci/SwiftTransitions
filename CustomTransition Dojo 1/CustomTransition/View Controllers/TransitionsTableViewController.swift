@@ -27,6 +27,11 @@ class TransitionsTableViewController: UITableViewController, UIViewControllerTra
             self.navigationController?.delegate = self
             self.navigationController?.pushViewController(cubeVC, animated: true)
             break
+        case 3:
+            let imgVC = self.storyboard!.instantiateViewControllerWithIdentifier("ImageViewController")
+            imgVC.transitioningDelegate = self
+            imgVC.modalPresentationStyle = .Custom
+            self.presentViewController(imgVC, animated: true, completion: nil)
         default:
             break
         }
@@ -35,15 +40,19 @@ class TransitionsTableViewController: UITableViewController, UIViewControllerTra
     }
     
     //MARK: - <UIViewControllerTransitioningDelegate>
-    
-    lazy var zoomAnimation = ZoomAnimationController()
-    lazy var cubeAnimation = CubeAnimationController()
+
+    lazy var imageAnimation = ImagemAnimationController()
+    lazy var zoomAnimation  = ZoomAnimationController()
+    lazy var cubeAnimation  = CubeAnimationController()
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
     {
         if presented.isKindOfClass(DetailViewController) {
             self.zoomAnimation.reverseAnimation = false
             return self.zoomAnimation
+        } else if presented.isKindOfClass(ImageViewController) {
+            self.imageAnimation.reverseAnimation = false
+            return self.imageAnimation
         }
         
         return nil
@@ -54,6 +63,9 @@ class TransitionsTableViewController: UITableViewController, UIViewControllerTra
         if dismissed.isKindOfClass(DetailViewController) {
             self.zoomAnimation.reverseAnimation = true
             return self.zoomAnimation
+        } else if dismissed.isKindOfClass(ImageViewController) {
+            self.imageAnimation.reverseAnimation = true
+            return self.imageAnimation
         }
         
         return nil

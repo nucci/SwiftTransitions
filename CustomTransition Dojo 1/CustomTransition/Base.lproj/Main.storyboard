@@ -4,6 +4,66 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
+        <!--Image View Controller-->
+        <scene sceneID="A19-Fv-l19">
+            <objects>
+                <viewController storyboardIdentifier="ImageViewController" id="nQK-yB-tuE" customClass="ImageViewController" customModule="CustomTransition" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vkE-sN-tjL"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gij-c7-Qb0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sDM-08-Xsk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balloons.png" translatesAutoresizingMaskIntoConstraints="NO" id="XDp-eB-HpE">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edz-vM-GY4">
+                                <rect key="frame" x="140" y="107" width="321" height="386"/>
+                                <mutableString key="text">Out of the night that covers me,
+Black as the pit from pole to pole,
+I thank whatever gods may be
+For my unconquerable soul.
+
+In the fell clutch of circumstance
+I have not winced nor cried aloud.
+Under the bludgeonings of chance
+My head is bloody, but unbowed.
+
+Beyond this place of wrath and tears
+Looms but the horror of the shade,
+And yet the menace of the years
+Finds and shall find me unafraid.
+
+It matters not how strait the gate,
+How charged with punishments the scroll,
+I am the master of my fate:
+I am the captain of my soul.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XDp-eB-HpE" secondAttribute="trailing" id="0vD-0a-AEf"/>
+                            <constraint firstItem="XDp-eB-HpE" firstAttribute="leading" secondItem="sDM-08-Xsk" secondAttribute="leading" id="2RE-08-tel"/>
+                            <constraint firstItem="Edz-vM-GY4" firstAttribute="centerX" secondItem="sDM-08-Xsk" secondAttribute="centerX" id="KDv-VG-Cvr"/>
+                            <constraint firstItem="Gij-c7-Qb0" firstAttribute="top" secondItem="XDp-eB-HpE" secondAttribute="bottom" id="OCc-CF-lwj"/>
+                            <constraint firstItem="XDp-eB-HpE" firstAttribute="top" secondItem="sDM-08-Xsk" secondAttribute="top" id="U0h-Wr-1ZV"/>
+                            <constraint firstItem="Edz-vM-GY4" firstAttribute="centerY" secondItem="sDM-08-Xsk" secondAttribute="centerY" id="fe0-nT-zhQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="XDp-eB-HpE" id="FR5-FV-oRS"/>
+                        <outlet property="poemaLabel" destination="Edz-vM-GY4" id="8cZ-ct-m8n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QNi-Wx-B3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1939" y="474"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jhv-PU-Pza">
             <objects>
@@ -79,6 +139,27 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="u0g-s0-yCz" imageView="MZR-pv-on6" rowHeight="49" style="IBUITableViewCellStyleDefault" id="Jtf-T0-BdP">
+                                        <rect key="frame" x="0.0" y="196" width="600" height="49"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jtf-T0-BdP" id="T70-tA-CG6">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="48"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Image Transition" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u0g-s0-yCz">
+                                                    <rect key="frame" x="115" y="0.0" width="470" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="balloons.png" id="MZR-pv-on6">
+                                                    <rect key="frame" x="15" y="0.0" width="85" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -204,4 +285,7 @@
             <point key="canvasLocation" x="-182" y="1124"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="balloons.png" width="1186" height="667"/>
+    </resources>
 </document>

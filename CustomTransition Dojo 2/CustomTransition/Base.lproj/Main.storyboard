@@ -82,6 +82,30 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="opY-Of-niF" imageView="yn3-3N-mtw" style="IBUITableViewCellStyleDefault" id="9zP-pZ-Xcz">
+                                        <rect key="frame" x="0.0" y="196" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9zP-pZ-Xcz" id="bDA-Ld-jDf">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Image transition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="opY-Of-niF">
+                                                    <rect key="frame" x="106" y="0.0" width="479" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="balloons.png" id="yn3-3N-mtw">
+                                                    <rect key="frame" x="15" y="0.0" width="76" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Onk-mH-sz5" kind="show" id="PDX-30-1QV"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -142,8 +166,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swipe left edge to dismiss" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mcw-TT-DbI">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="swipe left edge to dismiss" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mcw-TT-DbI">
+                                <rect key="frame" x="6" y="0.0" width="600" height="600"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -163,6 +187,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nor-ro-bnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1175" y="1124"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="V1Y-C8-3wX">
+            <objects>
+                <viewController id="Onk-mH-sz5" customClass="ImageViewController" customModule="CustomTransition" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RHk-VE-3d8"/>
+                        <viewControllerLayoutGuide type="bottom" id="5XA-nG-rzg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jIY-pR-iMR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="balloons.png" translatesAutoresizingMaskIntoConstraints="NO" id="eHh-vW-20s">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NJ4-eZ-5w7">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NJ4-eZ-5w7" firstAttribute="top" secondItem="RHk-VE-3d8" secondAttribute="bottom" id="1X0-Le-l7U"/>
+                            <constraint firstItem="eHh-vW-20s" firstAttribute="leading" secondItem="jIY-pR-iMR" secondAttribute="leading" id="HHt-rv-tMV"/>
+                            <constraint firstItem="5XA-nG-rzg" firstAttribute="top" secondItem="eHh-vW-20s" secondAttribute="bottom" id="Nwu-OZ-rrc"/>
+                            <constraint firstAttribute="trailing" secondItem="NJ4-eZ-5w7" secondAttribute="trailing" id="Qvg-EO-DSY"/>
+                            <constraint firstItem="eHh-vW-20s" firstAttribute="top" secondItem="RHk-VE-3d8" secondAttribute="bottom" id="iB8-mL-g9M"/>
+                            <constraint firstItem="5XA-nG-rzg" firstAttribute="top" secondItem="NJ4-eZ-5w7" secondAttribute="bottom" id="ibF-gB-YwU"/>
+                            <constraint firstAttribute="trailing" secondItem="eHh-vW-20s" secondAttribute="trailing" id="lc6-Wo-UkW"/>
+                            <constraint firstItem="NJ4-eZ-5w7" firstAttribute="leading" secondItem="jIY-pR-iMR" secondAttribute="leading" id="x4z-73-b7W"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="eHh-vW-20s" id="dRR-Ic-OBS"/>
+                        <outlet property="textView" destination="NJ4-eZ-5w7" id="Sct-s1-o69"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wkm-Gi-Km6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1928" y="1131"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="rXl-Ki-pNb">
@@ -204,4 +273,7 @@
             <point key="canvasLocation" x="-182" y="1124"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="balloons.png" width="1186" height="667"/>
+    </resources>
 </document>

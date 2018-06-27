@@ -10,20 +10,20 @@ import UIKit
 
 class TransitionsTableViewController: UITableViewController, UIViewControllerTransitioningDelegate, UINavigationControllerDelegate {
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.row) {
         case 0:
-            let zoomVC = self.storyboard!.instantiateViewControllerWithIdentifier("detailViewController")
+            let zoomVC = self.storyboard!.instantiateViewController(withIdentifier: "detailViewController")
             zoomVC.transitioningDelegate = self
-            zoomVC.modalPresentationStyle = .Custom
-            self.presentViewController(zoomVC, animated: true, completion: nil)
+            zoomVC.modalPresentationStyle = .custom
+            self.present(zoomVC, animated: true, completion: nil)
             break
         case 1:
-            let popupVC = self.storyboard!.instantiateViewControllerWithIdentifier("popupViewController")
-            self.presentViewController(popupVC, animated: true, completion: nil)
+            let popupVC = self.storyboard!.instantiateViewController(withIdentifier: "popupViewController")
+            self.present(popupVC, animated: true, completion: nil)
             break
         case 2:
-            let cubeVC = self.storyboard!.instantiateViewControllerWithIdentifier("cubeViewController")
+            let cubeVC = self.storyboard!.instantiateViewController(withIdentifier: "cubeViewController")
             self.navigationController?.delegate = self
             self.navigationController?.pushViewController(cubeVC, animated: true)
             break
@@ -31,7 +31,7 @@ class TransitionsTableViewController: UITableViewController, UIViewControllerTra
             break
         }
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: false);
+        tableView.deselectRow(at: indexPath, animated: false);
     }
     
     //MARK: - <UIViewControllerTransitioningDelegate>
@@ -40,9 +40,9 @@ class TransitionsTableViewController: UITableViewController, UIViewControllerTra
     lazy var cubeAnimation = CubeAnimationController()
     lazy var imageAnimation = ImageAnimationController()
     
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning?
     {
-        if presented.isKindOfClass(DetailViewController) {
+        if presented.isKind(of: DetailViewController.self) {
             self.zoomAnimation.reverseAnimation = false
             return self.zoomAnimation
         }
@@ -50,9 +50,9 @@ class TransitionsTableViewController: UITableViewController, UIViewControllerTra
         return nil
     }
     
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?
     {
-        if dismissed.isKindOfClass(DetailViewController) {
+        if dismissed.isKind(of: DetailViewController.self) {
             self.zoomAnimation.reverseAnimation = true
             return self.zoomAnimation
         }
@@ -62,11 +62,11 @@ class TransitionsTableViewController: UITableViewController, UIViewControllerTra
     
     //MARK: - UINavigationControllerDelegate
     
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning?
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning?
     {
         switch (operation) {
             
-        case .Pop:
+        case .pop:
             self.imageAnimation.reverseAnimation = true
             break
             
@@ -78,7 +78,7 @@ class TransitionsTableViewController: UITableViewController, UIViewControllerTra
         return self.imageAnimation
     }
     
-    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
     {
         if self.cubeAnimation.interactive {
             return self.cubeAnimation
@@ -86,7 +86,7 @@ class TransitionsTableViewController: UITableViewController, UIViewControllerTra
         return nil
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.navigationController?.delegate = self
 
     }

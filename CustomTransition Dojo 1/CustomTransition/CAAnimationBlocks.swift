@@ -8,12 +8,12 @@
 
 import UIKit
 
-extension CAAnimation {
+extension CAAnimation: CAAnimationDelegate {
     
-    typealias StartBlock = ((Void) -> Void)
-    typealias CompletionBlock = ((finished: Bool) -> Void)
+    typealias StartBlock = (() -> Void)
+    typealias CompletionBlock = ((_ finished: Bool) -> Void)
     
-    private struct Blocks {
+    fileprivate struct Blocks {
         static var startBlocks = Dictionary<CAAnimation, StartBlock>()
         static var completionBlocks = Dictionary<CAAnimation, CompletionBlock>()
     }
@@ -24,7 +24,7 @@ extension CAAnimation {
         }
         set {
             Blocks.startBlocks[self] = newValue
-            self.delegate = self
+            self.delegate = (self as CAAnimationDelegate)
         }
     }
     
@@ -34,25 +34,24 @@ extension CAAnimation {
         }
         set {
             Blocks.completionBlocks[self] = newValue
-            self.delegate = self
+            self.delegate = (self as CAAnimationDelegate)
         }
     }
     
-    
-    public override func animationDidStart(anim: CAAnimation)
+    public func animationDidStart(_ anim: CAAnimation)
     {
         if let block = self.startBlock {
             block()
-            Blocks.startBlocks.removeValueForKey(self)
+            Blocks.startBlocks.removeValue(forKey: self)
         }
     }
     
     
-    public override func animationDidStop(anim: CAAnimation, finished flag: Bool)
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool)
     {
         if let block = self.completionBlock {
-            block(finished: flag)
-            Blocks.completionBlocks.removeValueForKey(self)
+            block(flag)
+            Blocks.completionBlocks.removeValue(forKey: self)
         }
     }
 }

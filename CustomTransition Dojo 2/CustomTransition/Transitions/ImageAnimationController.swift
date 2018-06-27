@@ -16,19 +16,19 @@ class ImageAnimationController: NSObject, UIViewControllerAnimatedTransitioning 
     
         let imageView = UIImageView ()
         imageView.image = UIImage(named: "balloons.png")
-        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
         
         return imageView
     }()
     
     //MARK: - UIViewControllerAnimatedTransitioning
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval
     {
         return 1.0
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         if self.reverseAnimation {
             animateOut(transitionContext)
         }
@@ -39,16 +39,16 @@ class ImageAnimationController: NSObject, UIViewControllerAnimatedTransitioning 
     
     //MARK: - Animations
     
-    func animateIn(transitionContext: UIViewControllerContextTransitioning)
+    func animateIn(_ transitionContext: UIViewControllerContextTransitioning)
     {
-        let tableViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)! as! TransitionsTableViewController
-        let imageViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        let tableViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)! as! TransitionsTableViewController
+        let imageViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
         
-        let containerView: UIView = transitionContext.containerView()!
+        let containerView: UIView = transitionContext.containerView
         let detailView = imageViewController.view
-        let indexPath = NSIndexPath(forRow: 3, inSection: 0)
-        let cell = tableViewController.tableView.cellForRowAtIndexPath(indexPath)
-        let rect = cell?.imageView?.convertRect((cell?.imageView?.frame)!, toView: containerView)
+        let indexPath = IndexPath(row: 3, section: 0)
+        let cell = tableViewController.tableView.cellForRow(at: indexPath)
+        let rect = cell?.imageView?.convert((cell?.imageView?.frame)!, to: containerView)
         tempImageView.frame = rect!
         
         containerView.addSubview(tempImageView)
@@ -58,9 +58,9 @@ class ImageAnimationController: NSObject, UIViewControllerAnimatedTransitioning 
 //        tempImageView.bounds = (imageView?.bounds)!;
         
         
-        let duration = self.transitionDuration(transitionContext)
+        let duration = self.transitionDuration(using: transitionContext)
         
-        UIView.animateWithDuration(duration, delay:0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        UIView.animate(withDuration: duration, delay:0, options: UIViewAnimationOptions(), animations: { () -> Void in
             self.tempImageView.frame = containerView.bounds
             
             
@@ -69,8 +69,8 @@ class ImageAnimationController: NSObject, UIViewControllerAnimatedTransitioning 
             }) { (animationCompleted: Bool) -> Void in
                 
                 // since the detail view was just built, it needs to be added to the view heirarchy
-                containerView.addSubview(detailView)
-                detailView.frame = containerView.bounds
+                containerView.addSubview(detailView!)
+                detailView?.frame = containerView.bounds
                 
                 self.tempImageView.removeFromSuperview()
                 // when the animation is done we need to complete the transition
@@ -78,16 +78,16 @@ class ImageAnimationController: NSObject, UIViewControllerAnimatedTransitioning 
         }
     }
     
-    func animateOut(transitionContext: UIViewControllerContextTransitioning)
+    func animateOut(_ transitionContext: UIViewControllerContextTransitioning)
     {
-        let tableViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)! as! TransitionsTableViewController
-        let imageViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        let tableViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)! as! TransitionsTableViewController
+        let imageViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
         
-        let containerView: UIView = transitionContext.containerView()!
+        let containerView: UIView = transitionContext.containerView
         let detailView = imageViewController.view
-        let indexPath = NSIndexPath(forRow: 3, inSection: 0)
-        let cell = tableViewController.tableView.cellForRowAtIndexPath(indexPath)
-        let rect = cell?.imageView?.convertRect((cell?.imageView?.frame)!, toView: containerView)
+        let indexPath = IndexPath(row: 3, section: 0)
+        let cell = tableViewController.tableView.cellForRow(at: indexPath)
+        let rect = cell?.imageView?.convert((cell?.imageView?.frame)!, to: containerView)
         tempImageView.frame = containerView.bounds
         
         containerView.addSubview(tableViewController.view)
@@ -98,9 +98,9 @@ class ImageAnimationController: NSObject, UIViewControllerAnimatedTransitioning 
         //        tempImageView.bounds = (imageView?.bounds)!;
         
         imageViewController.view.alpha = 0
-        let duration = self.transitionDuration(transitionContext)
+        let duration = self.transitionDuration(using: transitionContext)
         
-        UIView.animateWithDuration(duration, delay:0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        UIView.animate(withDuration: duration, delay:0, options: UIViewAnimationOptions(), animations: { () -> Void in
             self.tempImageView.frame = rect!
             
             
@@ -109,7 +109,7 @@ class ImageAnimationController: NSObject, UIViewControllerAnimatedTransitioning 
             }) { (animationCompleted: Bool) -> Void in
                 
                 // since the detail view was just built, it needs to be added to the view heirarchy
-                containerView.addSubview(detailView)
+                containerView.addSubview(detailView!)
                 
                 self.tempImageView.removeFromSuperview()
                 

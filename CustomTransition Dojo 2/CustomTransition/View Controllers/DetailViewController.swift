@@ -15,14 +15,14 @@ class DetailViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("tapped")))
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(DetailViewController.tapped)))
     }
     
-    func tapped() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @objc func tapped() {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
 }

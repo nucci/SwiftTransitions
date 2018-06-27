@@ -13,15 +13,15 @@
 		2B528D901BA8F076002F2C59 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B528D8E1BA8F076002F2C59 /* LaunchScreen.xib */; };
 		2B528DAE1BA8F795002F2C59 /* TransitionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B528DAD1BA8F795002F2C59 /* TransitionsTableViewController.swift */; };
 		2B528DB01BA8FAEF002F2C59 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B528DAF1BA8FAEF002F2C59 /* DetailViewController.swift */; };
-		2BFDAB651BAAFDCA009D972F /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB641BAAFDCA009D972F /* PopupViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		2BFDAB671BAAFDE6009D972F /* CubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB661BAAFDE6009D972F /* CubeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		2BFDAB6B1BAB03CB009D972F /* balloons.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BFDAB6A1BAB03CB009D972F /* balloons.png */; settings = {ASSET_TAGS = (); }; };
-		2BFDAB721BAB1599009D972F /* CAAnimationBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB711BAB1599009D972F /* CAAnimationBlocks.swift */; settings = {ASSET_TAGS = (); }; };
-		2BFDAB761BAB9C8A009D972F /* ZoomAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB751BAB9C8A009D972F /* ZoomAnimationController.swift */; settings = {ASSET_TAGS = (); }; };
-		2BFDAB791BAB9FF2009D972F /* PopupAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB781BAB9FF2009D972F /* PopupAnimationController.swift */; settings = {ASSET_TAGS = (); }; };
-		2BFDAB7B1BABA476009D972F /* CubeAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB7A1BABA476009D972F /* CubeAnimationController.swift */; settings = {ASSET_TAGS = (); }; };
-		2BFDAB7D1BAC8762009D972F /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB7C1BAC8762009D972F /* ImageViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		2BFDAB7F1BAC8A8D009D972F /* ImageAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB7E1BAC8A8D009D972F /* ImageAnimationController.swift */; settings = {ASSET_TAGS = (); }; };
+		2BFDAB651BAAFDCA009D972F /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB641BAAFDCA009D972F /* PopupViewController.swift */; };
+		2BFDAB671BAAFDE6009D972F /* CubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB661BAAFDE6009D972F /* CubeViewController.swift */; };
+		2BFDAB6B1BAB03CB009D972F /* balloons.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BFDAB6A1BAB03CB009D972F /* balloons.png */; };
+		2BFDAB721BAB1599009D972F /* CAAnimationBlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB711BAB1599009D972F /* CAAnimationBlocks.swift */; };
+		2BFDAB761BAB9C8A009D972F /* ZoomAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB751BAB9C8A009D972F /* ZoomAnimationController.swift */; };
+		2BFDAB791BAB9FF2009D972F /* PopupAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB781BAB9FF2009D972F /* PopupAnimationController.swift */; };
+		2BFDAB7B1BABA476009D972F /* CubeAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB7A1BABA476009D972F /* CubeAnimationController.swift */; };
+		2BFDAB7D1BAC8762009D972F /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB7C1BAC8762009D972F /* ImageViewController.swift */; };
+		2BFDAB7F1BAC8A8D009D972F /* ImageAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFDAB7E1BAC8A8D009D972F /* ImageAnimationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,11 +154,12 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Gian Nucci";
 				TargetAttributes = {
 					2B528D7F1BA8F076002F2C59 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -243,13 +244,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -288,13 +299,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -313,6 +334,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -327,6 +349,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ciandt.digitalday.CustomTransitionComplete;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -340,6 +364,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ciandt.digitalday.CustomTransitionComplete;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

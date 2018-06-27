@@ -18,30 +18,30 @@ class ImageViewController: UIViewController  {
         textView.alpha = 0.0
         // Do any additional setup after loading the view.
         
-        self.imageView.userInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: "tap")
+        self.imageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ImageViewController.tap))
         self.imageView.addGestureRecognizer(tap)
         
-        self.textView.userInteractionEnabled = false
+        self.textView.isUserInteractionEnabled = false
         
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
     }
 
-    func tap ()
+    @objc func tap ()
     {
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
+        UIView.animate(withDuration: 0.5, animations: { () -> Void in
             self.textView.alpha = 0.0
-        }) { (bool) -> Void in
-            self.navigationController?.popViewControllerAnimated(true)
-        }
+        }, completion: { (bool) -> Void in
+            self.navigationController?.popViewController(animated: true)
+        }) 
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        UIView.animateWithDuration(0.5) { () -> Void in
+        UIView.animate(withDuration: 0.5, animations: { () -> Void in
             self.textView.alpha = 1.0
-        }
+        }) 
     }
     
     override func didReceiveMemoryWarning() {

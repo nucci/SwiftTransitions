@@ -9,7 +9,7 @@
 import UIKit
 
 class ZoomAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
-    private struct Zoom
+    fileprivate struct Zoom
     {
         static let minimum: CGFloat = 0.1, maximum: CGFloat = 5.0
     }
@@ -19,13 +19,13 @@ class ZoomAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
     //MARK: - <UIViewControllerAnimatedTransitioning>
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval
     {
         return 0.4
     }
     
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning)
     {
         if self.reverseAnimation {
             animateOut(transitionContext)
@@ -37,34 +37,34 @@ class ZoomAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
     //MARK: - Animations
     
-    func animateIn(transitionContext: UIViewControllerContextTransitioning)
+    func animateIn(_ transitionContext: UIViewControllerContextTransitioning)
     {
-        let tableViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
-        let detailViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        let tableViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
+        let detailViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
         
-        let containerView: UIView = transitionContext.containerView()!
+        let containerView: UIView = transitionContext.containerView
         let detailView = detailViewController.view
         let tableView = tableViewController.view
         
-        let duration = self.transitionDuration(transitionContext)
+        let duration = self.transitionDuration(using: transitionContext)
         
         // since the detail view was just built, it needs to be added to the view heirarchy
-        containerView.addSubview(detailView)
-        detailView.frame = containerView.bounds
+        containerView.addSubview(detailView!)
+        detailView?.frame = containerView.bounds
         
-        detailView.alpha = 0
-        detailView.transform = CGAffineTransformMakeScale(Zoom.maximum, Zoom.maximum)
+        detailView?.alpha = 0
+        detailView?.transform = CGAffineTransform(scaleX: Zoom.maximum, y: Zoom.maximum)
         
-        UIView.animateWithDuration(duration, delay:0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        UIView.animate(withDuration: duration, delay:0, options: UIViewAnimationOptions(), animations: { () -> Void in
             
-            detailView.alpha = 1
-            detailView.transform = CGAffineTransformIdentity
-            tableView.transform = CGAffineTransformMakeScale(Zoom.minimum, Zoom.minimum)
+            detailView?.alpha = 1
+            detailView?.transform = CGAffineTransform.identity
+            tableView?.transform = CGAffineTransform(scaleX: Zoom.minimum, y: Zoom.minimum)
             
             }) { (animationCompleted: Bool) -> Void in
                 
                 // return the table view back to its original state
-                tableView.transform = CGAffineTransformIdentity
+                tableView?.transform = CGAffineTransform.identity
                 
                 // when the animation is done we need to complete the transition
                 transitionContext.completeTransition(animationCompleted)
@@ -72,30 +72,30 @@ class ZoomAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     
-    func animateOut(transitionContext: UIViewControllerContextTransitioning)
+    func animateOut(_ transitionContext: UIViewControllerContextTransitioning)
     {
-        let tableViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        let detailViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        let tableViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
+        let detailViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
         
         let detailView = detailViewController.view
         let tableView = tableViewController.view
         
-        tableView.frame = transitionContext.finalFrameForViewController(tableViewController)
-        tableView.alpha = 0
-        tableView.transform = CGAffineTransformMakeScale(Zoom.minimum, Zoom.minimum)
+        tableView?.frame = transitionContext.finalFrame(for: tableViewController)
+        tableView?.alpha = 0
+        tableView?.transform = CGAffineTransform(scaleX: Zoom.minimum, y: Zoom.minimum)
         
-        UIView.animateWithDuration(self.transitionDuration(transitionContext), delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+        UIView.animate(withDuration: self.transitionDuration(using: transitionContext), delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
             
-            tableView.alpha = 1
-            tableView.transform = CGAffineTransformIdentity
+            tableView?.alpha = 1
+            tableView?.transform = CGAffineTransform.identity
             
-            detailView.alpha = 0
-            detailView.transform = CGAffineTransformMakeScale(Zoom.maximum, Zoom.maximum)
+            detailView?.alpha = 0
+            detailView?.transform = CGAffineTransform(scaleX: Zoom.maximum, y: Zoom.maximum)
             
             }) { (animationCompleted: Bool) -> Void in
                 
-                detailView.alpha = 1
-                detailView.transform = CGAffineTransformIdentity
+                detailView?.alpha = 1
+                detailView?.transform = CGAffineTransform.identity
                 
                 transitionContext.completeTransition(animationCompleted)
         }

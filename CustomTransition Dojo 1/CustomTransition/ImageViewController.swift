@@ -17,16 +17,16 @@ class ImageViewController: UIViewController {
 
         // Do any additional setup after loading the view.
                 
-        self.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("dismiss")))
+        self.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ImageViewController.dismiss as (ImageViewController) -> () -> ())))
     }
   
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        UIView.animateWithDuration(0.5) { () -> Void in
+        UIView.animate(withDuration: 0.5, animations: { () -> Void in
             self.poemaLabel.alpha = 1;
-        }
+        }) 
         
     }
 
@@ -35,8 +35,8 @@ class ImageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func dismiss() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @objc func dismiss() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     /*
